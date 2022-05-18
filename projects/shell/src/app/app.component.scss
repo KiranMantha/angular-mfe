@@ -1,0 +1,29 @@
+nav {
+  background-color: #333;
+  padding: 10px;
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+
+    li {
+      padding: 10px;
+      a {
+        padding: 10px;
+        color: #fff;
+
+        &:hover,
+        &:focus {
+          background-color: #444;
+        }
+      }
+    }
+  }
+}
+
+.container {
+  max-width: 1247px;
+  width: 100%;
+  margin: 0 auto;
+}
