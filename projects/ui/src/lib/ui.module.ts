@@ -1,16 +1,14 @@
 import { NgModule } from '@angular/core';
-import { UiComponent } from './ui.component';
-
-
+import { RouterModule } from '@angular/router';
+import { DropdownComponent } from './dropdown/dropdown.component';
+import { HeaderComponent } from './header/header.component';
+import { MainComponent } from './main/main.component';
+import { UiService } from './ui.service';
 
 @NgModule({
-  declarations: [
-    UiComponent
-  ],
-  imports: [
-  ],
-  exports: [
-    UiComponent
-  ]
+  declarations: [HeaderComponent, MainComponent, DropdownComponent],
+  imports: [RouterModule],
+  providers: [UiService],
+  exports: [HeaderComponent, MainComponent, DropdownComponent]
 })
-export class UiModule { }
+export class UiModule {}
