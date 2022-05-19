@@ -27,29 +27,31 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
       library: { type: "module" },
-
-      // For hosts (please adjust)
       remotes: {
         basket: "http://localhost:4201/basketRemoteEntry.js",
         products: "http://localhost:4202/productsRemoteEntry.js",
       },
       shared: share({
         "@angular/core": {
+          eager: true,
           singleton: true,
           strictVersion: true,
           requiredVersion: "auto",
         },
         "@angular/common": {
+          eager: true,
           singleton: true,
           strictVersion: true,
           requiredVersion: "auto",
         },
         "@angular/common/http": {
+          eager: true,
           singleton: true,
           strictVersion: true,
           requiredVersion: "auto",
         },
         "@angular/router": {
+          eager: true,
           singleton: true,
           strictVersion: true,
           requiredVersion: "auto",

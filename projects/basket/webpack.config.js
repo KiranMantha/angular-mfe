@@ -26,37 +26,37 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      library: { type: "module" },
-
-      // For remotes (please adjust)
       name: "basket",
+      library: { type: "module" },
       filename: "basketRemoteEntry.js",
       exposes: {
         "./Module": "./projects/basket/src/app/remote/remote.module.ts",
       },
-
       shared: share({
         "@angular/core": {
+          eager: true,
           singleton: true,
           strictVersion: true,
           requiredVersion: "auto",
         },
         "@angular/common": {
+          eager: true,
           singleton: true,
           strictVersion: true,
           requiredVersion: "auto",
         },
         "@angular/common/http": {
+          eager: true,
           singleton: true,
           strictVersion: true,
           requiredVersion: "auto",
         },
         "@angular/router": {
+          eager: true,
           singleton: true,
           strictVersion: true,
           requiredVersion: "auto",
         },
-
         ...sharedMappings.getDescriptors(),
       }),
     }),
