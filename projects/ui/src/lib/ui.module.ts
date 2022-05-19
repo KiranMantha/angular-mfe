@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { DropdownComponent } from './dropdown/dropdown.component';
@@ -7,7 +8,7 @@ import { UiService } from './ui.service';
 
 @NgModule({
   declarations: [HeaderComponent, MainComponent, DropdownComponent],
-  imports: [RouterModule],
+  imports: [CommonModule, RouterModule],
   providers: [UiService],
   exports: [HeaderComponent, MainComponent, DropdownComponent]
 })
