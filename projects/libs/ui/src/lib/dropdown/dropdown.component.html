@@ -1,11 +1,11 @@
-<details role="listbox" id="dropdown-details">
+<details role="listbox" id="dropdown-details" #detailsTag>
   <summary>{{ selectedOption[0].label }}</summary>
   <ul id="dropdown-list">
     <li *ngFor="let option of options">
       <input
         [attr.id]="option.value"
         [attr.type]="multiple ? 'checkbox' : 'radio'"
-        (changed)="select(option)"
+        (change)="select(option)"
       />
       <label [attr.for]="option.value">{{ option.label }}</label>
     </li>

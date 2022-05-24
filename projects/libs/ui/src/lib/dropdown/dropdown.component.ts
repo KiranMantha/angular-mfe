@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild
+} from '@angular/core';
 import { DropdownOption } from '../models';
 
 @Component({
@@ -7,6 +14,7 @@ import { DropdownOption } from '../models';
   styleUrls: ['./dropdown.component.scss']
 })
 export class DropdownComponent<T> {
+  @ViewChild('detailsTag') detailsTag: ElementRef;
   @Input() options: DropdownOption<T>[];
   @Input() multiple: boolean;
   @Output() selectOption: EventEmitter<
@@ -29,6 +37,7 @@ export class DropdownComponent<T> {
     if (!this.multiple) {
       this.selectedOption = [option];
       this.selectOption.emit(this.selectedOption[0]);
+      this.detailsTag.nativeElement.removeAttribute('open');
     } else {
       if (this.selectedOption[0].label === 'Select') this.selectedOption = [];
       this.selectedOption.push(option);
